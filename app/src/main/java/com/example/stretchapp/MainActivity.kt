@@ -10,8 +10,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.stretchapp.databinding.ActivityMainBinding
+import com.example.stretchapp.MainActivityTimerListener
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityTimerListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -55,4 +56,26 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+    override fun onStretchTimerStarted() {
+        TODO("Not yet implemented")
+        println("[interface] stretch timer started")
+    }
+
+    override fun onStretchTimerStopped() {
+        TODO("Not yet implemented")
+        println("[interface] stretch timer stopped")
+    }
+
+    override fun onRestTimerStarted() {
+        TODO("Not yet implemented")
+        println("[interface] rest timer started")
+    }
+
+    override fun onRestTimerStopped() {
+        TODO("Not yet implemented")
+        println("[interface] rest timer stopped")
+    }
+
+
 }
