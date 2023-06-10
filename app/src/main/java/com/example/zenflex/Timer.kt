@@ -1,5 +1,4 @@
-package com.example.stretchapp
-import com.example.stretchapp.MainActivityTimerListener
+package com.example.zenflex
 import android.os.CountDownTimer
 
 class Timer(
@@ -10,6 +9,9 @@ class Timer(
     // keeps track of whether we should stop or continue
     private var stretchingSequenceOn: Boolean = false;
 
+    // starting timer
+    private var startingCooldownTimer: CountDownTimer? = null;
+
     // keep track of stretch and rest timing
     private var stretchTimer: CountDownTimer? = null;
     private var restTimer: CountDownTimer? = null;
@@ -17,6 +19,39 @@ class Timer(
     // keep track of cooldown timing
     private var stretchCooldownTimer: CountDownTimer? = null;
     private var restCooldownTimer: CountDownTimer? = null;
+
+    fun startTimer() : Boolean {
+
+        println("[Timer] starting entire Timer")
+
+        // Makes sure the internal state is false
+        stretchingSequenceOn = true;
+
+        // will time the stretching
+        startingCooldownTimer = object : CountDownTimer(3000, 200) {
+
+            override fun onTick(millisUntilFinished: Long) {
+                // TODO("Will need to check if we have to stop")
+                if (stretchingSequenceOn) {
+                    println("[Timer] ticking starting timer");
+                }
+                else {
+                    this.cancel();
+                }
+            }
+
+            override fun onFinish() {
+                // TODO("Not yet implemented")
+                startStretchTimer();
+            }
+        }
+        startingCooldownTimer?.start()
+
+        // calls UI updates when the timer stops
+        mainActivityListener.onTimerSequenceStarted();
+
+        return true;
+    }
 
     fun stopTimer() : Boolean {
 
@@ -35,9 +70,6 @@ class Timer(
     }
 
     fun startStretchTimer() : Boolean {
-
-        // Makes sure the internal state is true
-        stretchingSequenceOn = true;
 
         // STUB: TODO
         println("[Timer] starting stretch timer.")

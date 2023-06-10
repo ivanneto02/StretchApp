@@ -1,7 +1,8 @@
-package com.example.stretchapp
+package com.example.zenflex
 
 interface MainActivityTimerListener {
     fun onTimerSequenceStopped();
+    fun onTimerSequenceStarted();
     fun onStretchTimerStarted();
     fun onStretchTimerStopped();
     fun onRestTimerStarted();

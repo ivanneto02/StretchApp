@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.stretchapp">
+    package="com.example.zenflex">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/stretching"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/stretching"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StretchApp">
+        android:theme="@style/Theme.ZenFlex">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.zenflex.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.StretchApp.NoActionBar">
+            android:theme="@style/Theme.ZenFlex.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.stretchapp
+package com.example.zenflex
 
 import org.junit.Test
 

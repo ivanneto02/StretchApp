@@ -1,14 +1,11 @@
-package com.example.stretchapp
+package com.example.zenflex
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.example.stretchapp.databinding.FragmentFirstBinding
-import com.example.stretchapp.Timer
-import com.example.stretchapp.MainActivityTimerListener
+import com.example.zenflex.databinding.FragmentFirstBinding
 import android.media.MediaPlayer
 
 /**
@@ -46,7 +43,7 @@ class FirstFragment : Fragment(), MainActivityTimerListener {
             if (stretchingSequenceOn) {
                 // Initialize timer and send start signal to timer
                 myTimer = Timer(this, 20, 10);
-                myTimer?.startStretchTimer();
+                myTimer?.startTimer();
             }
             else {
                 // Send the stop signal to timer
@@ -64,8 +61,6 @@ class FirstFragment : Fragment(), MainActivityTimerListener {
     }
 
     override fun onTimerSequenceStopped() {
-//        TODO("Not yet implemented")
-
         // change UI components
         binding.buttonStartStop.text = "START";
         binding.textviewFirst.text = "Click button to start your stretch";
@@ -76,8 +71,19 @@ class FirstFragment : Fragment(), MainActivityTimerListener {
         mediaPlayer.start();
     }
 
+    override fun onTimerSequenceStarted() {
+
+        // change UI components
+        binding.buttonStartStop.text = "STOP";
+        binding.textviewFirst.text = "READY...";
+
+        // play the sound for this action
+        val audioID = resources.getIdentifier("starting1", "raw", context?.packageName);
+        var mediaPlayer = MediaPlayer.create(context, audioID);
+        mediaPlayer.start();
+    }
+
     override fun onStretchTimerStarted() {
-//      TODO("Not yet implemented")
         println("[MainActivityTimerListener] stretch timer started")
 
         // change UI components
@@ -91,7 +97,6 @@ class FirstFragment : Fragment(), MainActivityTimerListener {
     }
 
     override fun onStretchTimerStopped() {
-//        TODO("Not yet implemented")
         println("[MainActivityTimerListener] stretch timer stopped")
 
         // change UI components
@@ -104,7 +109,6 @@ class FirstFragment : Fragment(), MainActivityTimerListener {
     }
 
     override fun onRestTimerStarted() {
-//        TODO("Not yet implemented")
         println("[MainActivityTimerListener] rest timer started")
 
         // change UI components
@@ -117,7 +121,6 @@ class FirstFragment : Fragment(), MainActivityTimerListener {
     }
 
     override fun onRestTimerStopped() {
-//        TODO("Not yet implemented")
         println("[MainActivityTimerListener] rest timer stopped")
 
         // change UI components
