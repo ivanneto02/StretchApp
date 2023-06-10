@@ -1,8 +1,9 @@
 package com.example.stretchapp
 
 interface MainActivityTimerListener {
-    fun onStretchTimerStarted()
-    fun onStretchTimerStopped()
-    fun onRestTimerStarted()
-    fun onRestTimerStopped()
+    fun onTimerSequenceStopped();
+    fun onStretchTimerStarted();
+    fun onStretchTimerStopped();
+    fun onRestTimerStarted();
+    fun onRestTimerStopped();
 }
