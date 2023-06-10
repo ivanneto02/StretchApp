@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--&lt;!&ndash; light colors &ndash;&gt;-->
+<!--    <color name=""></color>-->
+
+<!-- dark colors  -->
+    <color name="bluevar1">#01161e</color>
+    <color name="bluevar2">#124559</color>
+    <color name="bluevar3">#598392</color>
+    <color name="bluevar4">#aec3b0</color>
+    <color name="bluevar5">#eff6e0</color>
 </resources>
